@@ -161,13 +161,6 @@ CLIENT_URL=http://localhost:3000
 
 ---
 
-## Deployed URLs (placeholders)
-
-- Server (Railway): https://your-chat-server.railway.app
-- Client (GitHub Pages): https://your-username.github.io/your-repo
-
----
-
 ## Troubleshooting
 
 - ERR_CONNECTION_REFUSED when connecting to Socket.io:
