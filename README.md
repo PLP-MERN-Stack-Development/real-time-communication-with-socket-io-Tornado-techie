@@ -132,6 +132,9 @@ git push origin main
 ![CI/CD Pipeline Overview](screenshots/ci-cd-pipeline.png)
 *GitHub Actions workflow showing successful CI/CD pipeline execution*
 
+![Test Results](screenshots/test-results.png)
+*Automated test execution with coverage reports across multiple Node.js versions*
+
 ![Deployment Success](screenshots/pages-build-deployment.png)
 *Successful automatic deployment to production environments*
 
