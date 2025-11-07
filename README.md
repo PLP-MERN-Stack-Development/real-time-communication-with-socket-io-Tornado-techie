@@ -1,5 +1,17 @@
 # Real-Time Chat Application with Socket.io
-## Real-Time Chat Application (Socket.io + MERN)
+
+## 🚀 Live Application
+
+**Try the Live Application:**
+- **Frontend (Vercel):** [https://realtime-socketio-chatapp-z6rv.vercel.app](https://realtime-socketio-chatapp-z6rv.vercel.app)
+- **Backend API (Render):** [https://socket-io-chat-app-mhoi.onrender.com](https://socket-io-chat-app-mhoi.onrender.com)
+- **Health Check:** [https://socket-io-chat-app-mhoi.onrender.com/health](https://socket-io-chat-app-mhoi.onrender.com/health)
+
+> **Note:** The backend may take 30-60 seconds to wake up on first request (Render free tier limitation).
+
+---
+
+## About
 
 This repository contains a real-time chat application built with a React front-end and a Node/Express + Socket.io back-end. It demonstrates bidirectional real-time messaging, user presence, message operations (reply, star, edit, delete), private messaging, and additional UX improvements and is a requirement of my week 5 assignment in my specialization as a full stack MERN developer.
 
@@ -117,16 +129,13 @@ git push origin main
 
 ### CI/CD Pipeline Screenshots
 
-![CI/CD Pipeline Overview](screenshots/cicd-pipeline-overview.png)
+![CI/CD Pipeline Overview](screenshots/ci-cd-pipeline.png)
 *GitHub Actions workflow showing successful CI/CD pipeline execution*
 
-![Test Results](screenshots/test-results.png)
-*Automated test execution with coverage reports across multiple Node.js versions*
-
-![Deployment Success](screenshots/deployment-success.png)
+![Deployment Success](screenshots/pages-build-deployment.png)
 *Successful automatic deployment to production environments*
 
-![Code Quality Checks](screenshots/code-quality-checks.png)
+![Code Quality Checks](screenshots/code-quality.png)
 *Security audits and code quality analysis results*
 
 ### 📸 How to Capture CI/CD Pipeline Screenshots
@@ -313,20 +322,6 @@ NODE_ENV=production
 
 ---
 
-## Live Application URLs
-
-🚀 **Try the Live Application:**
-
-- **Frontend (Vercel):** [https://realtime-socketio-chatapp-z6rv.vercel.app](https://realtime-socketio-chatapp-z6rv.vercel.app)
-- **Backend API (Render):** [https://socket-io-chat-app-mhoi.onrender.com](https://socket-io-chat-app-mhoi.onrender.com)
-- **Health Check:** [https://socket-io-chat-app-mhoi.onrender.com/health](https://socket-io-chat-app-mhoi.onrender.com/health)
-
-**Note:** The backend may take 30-60 seconds to wake up on first request (Render free tier limitation).
-
-The application is configured for production deployment with MongoDB Atlas as the database.
-
----
-
 ## Troubleshooting
 
 **ERR_CONNECTION_REFUSED when connecting to Socket.io:**
@@ -393,5 +388,6 @@ The application is configured for production deployment with MongoDB Atlas as th
 
 ---
 
-Happy coding! by Salome Mundia#   U p d a t e d   1 1 / 0 7 / 2 0 2 5   1 8 : 1 8 : 2 0  
+Happy coding! by Salome Mundia#   U p d a t e d   1 1 / 0 7 / 2 0 2 5   1 8 : 1 8 : 2 0 
+ 
  
