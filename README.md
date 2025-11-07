@@ -154,7 +154,7 @@ NODE_ENV=development
 ### Production (Render Environment Variables):
 ```
 PORT=5000
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/chat-app
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>
 JWT_SECRET=your_secure_production_jwt_secret
 CLIENT_URL=https://tornado-techie.github.io/real-time-communication-with-socket-io-Tornado-techie
 NODE_ENV=production
@@ -164,6 +164,7 @@ NODE_ENV=production
 - MongoDB Atlas is recommended for production (replace local MongoDB URI)
 - Generate a secure JWT secret using: `node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"`
 - Client URL should point to your deployed frontend
+- **Security Warning:** Never commit real credentials to your repository. Replace `<username>`, `<password>`, `<cluster>`, and `<database>` with your actual MongoDB Atlas credentials only in your deployment environment variables.
 
 ---
 
