@@ -116,7 +116,14 @@ Recommended: **Sentry**
 **Manual Backup**:
 ```bash
 # Using mongodump (requires MongoDB tools)
-mongodump --uri="mongodb+srv://user:pass@cluster.mongodb.net/database" --out ./backup/$(date +%Y%m%d)
+# SECURITY WARNING: Never commit actual credentials to version control
+# Use environment variables or secure credential management
+
+# Template (replace placeholders with actual values):
+mongodump --uri="mongodb+srv://[USERNAME]:[PASSWORD]@[CLUSTER].mongodb.net/[DATABASE]" --out ./backup/$(date +%Y%m%d)
+
+# Example usage (DO NOT commit actual values):
+# mongodump --uri="$MONGODB_URI" --out ./backup/$(date +%Y%m%d)
 ```
 
 **Backup Schedule Recommendations**:
@@ -206,6 +213,13 @@ mongodump --uri="mongodb+srv://user:pass@cluster.mongodb.net/database" --out ./b
 - [ ] Monitor application for 24 hours
 
 ## 🔐 Security Maintenance
+
+### ⚠️ CRITICAL SECURITY REMINDERS
+- **NEVER commit `.env` files** containing real credentials
+- **Always use `.env.example`** with placeholder values for documentation
+- **Rotate credentials immediately** if accidentally exposed
+- **Use environment variables** in production (Render/Vercel dashboards)
+- **Review commit history** for accidentally committed secrets
 
 ### Regular Security Tasks
 - [ ] Keep dependencies updated
