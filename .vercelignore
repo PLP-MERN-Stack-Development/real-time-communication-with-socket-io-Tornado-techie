@@ -1,0 +1,9 @@
+node_modules
+client/node_modules
+server/node_modules
+client/src
+*.md
+.git
+.gitignore
+screenshots
+Week5-Assignment.md
