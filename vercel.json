@@ -1,6 +1,9 @@
 {
-  "buildCommand": "cd client && npm install && npm run build",
+  "buildCommand": "cd client && npm install && REACT_APP_SOCKET_URL=https://socket-io-chat-app-mhoi.onrender.com npm run build",
   "outputDirectory": "client/build",
   "installCommand": "echo 'No root install needed'",
-  "framework": null
+  "framework": null,
+  "env": {
+    "REACT_APP_SOCKET_URL": "https://socket-io-chat-app-mhoi.onrender.com"
+  }
 }

@@ -25,8 +25,9 @@ const Login = () => {
 
     try {
       const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
+      const API_URL = process.env.REACT_APP_SOCKET_URL || 'http://localhost:5000';
       const response = await axios.post(
-        `http://localhost:5000${endpoint}`,
+        `${API_URL}${endpoint}`,
         formData
       );
 
