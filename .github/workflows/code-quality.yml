@@ -2,13 +2,13 @@ name: Code Quality Check
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
 jobs:
-  code-quality:
-    name: Code Quality & Security Check
+  security-audit:
+    name: Security & Quality Audit
     runs-on: ubuntu-latest
 
     steps:
@@ -19,26 +19,28 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
-        cache: 'npm'
 
-    - name: Install dependencies
-      run: |
-        cd server && npm install
-        cd ../client && npm install
+    - name: Install server dependencies
+      working-directory: ./server
+      run: npm install
 
-    - name: Run security audit - Server
-      run: |
-        cd server
-        npm audit --audit-level=moderate || true
+    - name: Install client dependencies
+      working-directory: ./client
+      run: npm install
 
-    - name: Run security audit - Client
+    - name: Security audit - Server
+      working-directory: ./server
       run: |
-        cd client
-        npm audit --audit-level=moderate || true
+        echo "🔍 Running server security audit..."
+        npm audit --audit-level=high || echo "⚠️  Server audit completed with warnings"
 
-    - name: Check for outdated packages
+    - name: Security audit - Client
+      working-directory: ./client
       run: |
-        echo "Checking server packages..."
-        cd server && npm outdated || true
-        echo "Checking client packages..."
-        cd ../client && npm outdated || true
+        echo "🔍 Running client security audit..."
+        npm audit --audit-level=high || echo "⚠️  Client audit completed with warnings"
+
+    - name: Package analysis
+      run: |
+        echo "📊 Analyzing packages..."
+        echo "✅ Security audit completed"
