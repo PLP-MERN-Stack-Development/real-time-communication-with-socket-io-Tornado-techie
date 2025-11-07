@@ -156,7 +156,7 @@ NODE_ENV=development
 PORT=5000
 MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>
 JWT_SECRET=your_secure_production_jwt_secret
-CLIENT_URL=https://tornado-techie.github.io/real-time-communication-with-socket-io-Tornado-techie
+CLIENT_URL=https://realtime-socketio-chatapp-z6rv-k27sbtveq.vercel.app
 NODE_ENV=production
 ```
 
@@ -194,8 +194,8 @@ NODE_ENV=production
 
 ## Deployed URLs
 
-- **Backend Server (Render):** `https://your-render-service.onrender.com`
-- **Frontend Client (GitHub Pages):** `https://tornado-techie.github.io/real-time-communication-with-socket-io-Tornado-techie`
+- **Backend Server (Render):** `https://socket-io-chat-app-mhoi.onrender.com`
+- **Frontend Client (Vercel):** `https://realtime-socketio-chatapp-z6rv-k27sbtveq.vercel.app`
 
 The application is configured for production deployment with MongoDB Atlas as the database.
 
