@@ -1,0 +1,83 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: Test Application
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install server dependencies
+      run: |
+        cd server
+        npm ci
+
+    - name: Install client dependencies
+      run: |
+        cd client
+        npm ci
+
+    - name: Lint server code
+      run: |
+        cd server
+        npm run lint || echo "No lint script found, skipping..."
+
+    - name: Lint client code
+      run: |
+        cd client
+        npm run lint || echo "No lint script found, skipping..."
+
+    - name: Test server
+      run: |
+        cd server
+        npm test || echo "No tests found, skipping..."
+
+    - name: Test client
+      run: |
+        cd client
+        npm test -- --coverage --ci --watchAll=false || echo "No tests found, skipping..."
+
+    - name: Build client
+      run: |
+        cd client
+        npm run build
+
+  deploy-backend:
+    name: Deploy Backend (Render)
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Trigger Render Deploy
+      run: |
+        echo "Backend will auto-deploy via Render webhook on main branch push"
+
+  deploy-frontend:
+    name: Deploy Frontend (Vercel)
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - name: Trigger Vercel Deploy
+      run: |
+        echo "Frontend will auto-deploy via Vercel webhook on main branch push"

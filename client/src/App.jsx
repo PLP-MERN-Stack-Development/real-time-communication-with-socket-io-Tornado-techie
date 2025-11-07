@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext.jsx';
-import Login from './components/Login.jsx';
-import ChatRoom from './components/ChatRoom.jsx';
 import './App.css';
+
+// Lazy load components for code splitting
+const Login = lazy(() => import('./components/Login.jsx'));
+const ChatRoom = lazy(() => import('./components/ChatRoom.jsx'));
 
 function AppContent() {
   const { user, loading } = useAuth();
@@ -11,7 +13,11 @@ function AppContent() {
     return <div className="loading">Loading...</div>;
   }
 
-  return user ? <ChatRoom /> : <Login />;
+  return (
+    <Suspense fallback={<div className="loading">Loading component...</div>}>
+      {user ? <ChatRoom /> : <Login />}
+    </Suspense>
+  );
 }
 
 function App() {

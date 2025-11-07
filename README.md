@@ -122,10 +122,10 @@ Open http://localhost:3000 in your browser. The client connects to the server at
    - `NODE_ENV`: Set to `production`
 4. Render will automatically build and deploy your backend
 
-**GitHub Pages (Frontend):**
-1. Frontend is deployed to GitHub Pages automatically
-2. URL: https://tornado-techie.github.io/real-time-communication-with-socket-io-Tornado-techie/
-3. Update `client/.env` with your Render backend URL before building
+**Vercel (Frontend):**
+1. Frontend is deployed to Vercel automatically from GitHub
+2. URL: https://realtime-socketio-chatapp-z6rv.vercel.app
+3. Environment variables are configured in `vercel.json` for production builds
 
 **Deployment Files:**
 - `render.yaml`: Render service configuration for backend deployment
@@ -156,7 +156,7 @@ NODE_ENV=development
 PORT=5000
 MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>
 JWT_SECRET=your_secure_production_jwt_secret
-CLIENT_URL=https://realtime-socketio-chatapp-z6rv-k27sbtveq.vercel.app
+CLIENT_URL=https://realtime-socketio-chatapp-z6rv.vercel.app
 NODE_ENV=production
 ```
 
@@ -192,10 +192,15 @@ NODE_ENV=production
 
 ---
 
-## Deployed URLs
+## Live Application URLs
 
-- **Backend Server (Render):** `https://socket-io-chat-app-mhoi.onrender.com`
-- **Frontend Client (Vercel):** `https://realtime-socketio-chatapp-z6rv-k27sbtveq.vercel.app`
+🚀 **Try the Live Application:**
+
+- **Frontend (Vercel):** [https://realtime-socketio-chatapp-z6rv.vercel.app](https://realtime-socketio-chatapp-z6rv.vercel.app)
+- **Backend API (Render):** [https://socket-io-chat-app-mhoi.onrender.com](https://socket-io-chat-app-mhoi.onrender.com)
+- **Health Check:** [https://socket-io-chat-app-mhoi.onrender.com/health](https://socket-io-chat-app-mhoi.onrender.com/health)
+
+**Note:** The backend may take 30-60 seconds to wake up on first request (Render free tier limitation).
 
 The application is configured for production deployment with MongoDB Atlas as the database.
 
@@ -239,7 +244,7 @@ The application is configured for production deployment with MongoDB Atlas as th
 - Frontend: React with Socket.io client
 - Backend: Node.js, Express, Socket.io server
 - Database: MongoDB (local development) / MongoDB Atlas (production)
-- Deployment: GitHub Pages (frontend) + Render (backend)
+- Deployment: Vercel (frontend) + Render (backend)
 
 **Potential Improvements:**
 - Add unit/integration tests for socket handlers and React components
@@ -255,7 +260,7 @@ The application is configured for production deployment with MongoDB Atlas as th
 - This repository is a fork from the classroom repo
 - Original classroom repo: `PLP-MERN-Stack-Development/real-time-communication-with-socket-io-Tornado-techie`
 - Personal fork: `Tornado-techie/real-time-communication-with-socket-io-Tornado-techie`
-- Frontend deployed from personal fork to GitHub Pages
+- Frontend deployed from personal fork to Vercel
 - Backend deployed from personal fork to Render
 
 ---
