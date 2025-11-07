@@ -17,6 +17,9 @@ lerna-debug.log*
 dist/
 build/
 client/build/
+# But keep important HTML files
+!client/public/index.html
+!**/public/index.html
 server/build/
 
 # Runtime data
@@ -91,7 +94,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+# public - commented out to allow client/public files
 
 # Storybook build outputs
 .out
