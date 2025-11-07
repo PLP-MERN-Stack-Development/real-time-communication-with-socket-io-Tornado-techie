@@ -23,8 +23,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd server && npm ci
-        cd ../client && npm ci
+        cd server && npm install
+        cd ../client && npm install
 
     - name: Run security audit - Server
       run: |
