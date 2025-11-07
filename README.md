@@ -64,6 +64,127 @@ real-time-communication-with-socket-io-Tornado-techie/
 
 ---
 
+## 🚀 CI/CD Pipeline & Deployment Process
+
+### GitHub Actions Workflows
+This project includes automated CI/CD pipelines that run on every push and pull request:
+
+**Continuous Integration Pipeline** (`.github/workflows/ci-cd.yml`):
+- ✅ **Multi-Node Testing**: Tests on Node.js 18.x and 20.x
+- ✅ **Dependency Installation**: Installs both server and client dependencies  
+- ✅ **Code Quality Checks**: Runs linting on both frontend and backend
+- ✅ **Automated Testing**: Executes test suites with coverage reports
+- ✅ **Production Build**: Builds optimized React application
+- ✅ **Deployment Triggers**: Auto-deploys to production on main branch
+
+**Code Quality Pipeline** (`.github/workflows/code-quality.yml`):
+- 🔍 **Security Audits**: Checks for vulnerable dependencies
+- 📊 **Package Analysis**: Identifies outdated packages
+- 🛡️ **Multi-level Checks**: Runs on both server and client codebases
+
+### Deployment Process Documentation
+
+#### Automatic Deployment Flow
+```
+1. Developer pushes to main branch
+2. GitHub Actions triggers CI/CD pipeline
+3. Tests run automatically (Node 18.x & 20.x)
+4. Code quality and security checks execute
+5. If all checks pass:
+   ├── Render auto-deploys backend
+   └── Vercel auto-deploys frontend
+6. Health checks verify deployment success
+```
+
+#### Manual Deployment Process
+```bash
+# 1. Ensure all tests pass locally
+npm test
+
+# 2. Build production version
+cd client && npm run build
+
+# 3. Commit and push changes
+git add .
+git commit -m "feat: description of changes"
+git push origin main
+
+# 4. Monitor deployment in dashboards:
+# - GitHub Actions: Check workflow status
+# - Render: Monitor backend deployment
+# - Vercel: Monitor frontend deployment
+```
+
+### CI/CD Pipeline Screenshots
+
+![CI/CD Pipeline Overview](screenshots/cicd-pipeline-overview.png)
+*GitHub Actions workflow showing successful CI/CD pipeline execution*
+
+![Test Results](screenshots/test-results.png)
+*Automated test execution with coverage reports across multiple Node.js versions*
+
+![Deployment Success](screenshots/deployment-success.png)
+*Successful automatic deployment to production environments*
+
+![Code Quality Checks](screenshots/code-quality-checks.png)
+*Security audits and code quality analysis results*
+
+### 📸 How to Capture CI/CD Pipeline Screenshots
+
+#### 1. **CI/CD Pipeline Overview** (`cicd-pipeline-overview.png`)
+```
+1. Go to your GitHub repository
+2. Click on "Actions" tab
+3. Click on any recent workflow run
+4. Take screenshot showing:
+   - Workflow name and status
+   - All job stages (test, deploy-backend, deploy-frontend)
+   - Execution time and results
+   - Green checkmarks for successful runs
+```
+
+#### 2. **Test Results** (`test-results.png`)
+```
+1. In GitHub Actions, click on a completed workflow
+2. Click on "Test Application" job
+3. Expand the test execution steps
+4. Screenshot showing:
+   - Node.js version matrix (18.x, 20.x)
+   - Test execution output
+   - Coverage reports (if available)
+   - Lint results
+```
+
+#### 3. **Deployment Success** (`deployment-success.png`)
+```
+1. In GitHub Actions, show completed workflow with all green checkmarks
+2. Alternatively, show Render/Vercel deployment dashboards
+3. Screenshot should show:
+   - Successful deployment status
+   - Deployment time and duration
+   - Live application URLs
+   - Health check confirmations
+```
+
+#### 4. **Code Quality Checks** (`code-quality-checks.png`)
+```
+1. Click on "Code Quality Check" workflow
+2. Expand security audit steps
+3. Screenshot showing:
+   - npm audit results
+   - Security vulnerability scans
+   - Package outdated checks
+   - Overall security status
+```
+
+#### 📁 Screenshot Requirements:
+- **Format**: PNG or JPG
+- **Size**: 1200px width recommended
+- **Quality**: Clear text, readable interface elements
+- **Content**: Include timestamps and status indicators
+
+---
+
 ## Advanced features implemented
 
 - Real-time messaging with Socket.io
@@ -226,6 +347,13 @@ The application is configured for production deployment with MongoDB Atlas as th
 - Check Render build logs for specific error messages
 - Verify MongoDB connection string is correct
 - Render may take a few minutes for the initial deploy
+
+**GitHub Actions CI/CD failures:**
+- Check workflow logs in GitHub Actions tab
+- Verify Node.js version compatibility (18.x, 20.x supported)
+- Ensure all environment secrets are configured
+- Check for dependency conflicts or security vulnerabilities
+- Verify build scripts work locally before pushing
 
 **MongoDB connection issues:**
 - For local development: Ensure MongoDB is running on localhost:27017
